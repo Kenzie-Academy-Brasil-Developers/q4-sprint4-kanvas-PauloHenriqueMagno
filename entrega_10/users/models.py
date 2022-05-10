@@ -13,9 +13,5 @@ class Users(AbstractUser):
 
     address = models.ForeignKey('addresses.Addresses', on_delete = models.SET_NULL, related_name = 'users', null = True)
 
-    course = models.ForeignKey('courses.Courses', on_delete = models.SET_NULL, related_name = 'instructor', null = True)
-
-    courses = models.ManyToManyField('courses.Courses', related_name = 'students')
-
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

@@ -7,3 +7,7 @@ class Courses(models.Model):
     demo_time = models.TimeField()
     created_at = models.DateTimeField()
     link_repo = models.CharField(max_length = 250)
+
+    instructor = models.ForeignKey('users.Users', on_delete = models.SET_NULL, related_name = 'course', null = True)
+
+    students = models.ManyToManyField('users.Users', related_name = 'courses')
